@@ -1,0 +1,72 @@
+
+import java.util.Scanner;
+
+public class SumDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int a = sc.nextInt();
+        int sum = 0;
+
+        while (a != 0) {
+            int d = a % 10;
+            sum = sum + d;
+            a = a / 10;
+        }
+
+        System.out.println("Sum of digits: " + sum);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class CountDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int a = sc.nextInt();
+        int count = 0;
+
+        if (a == 0) count = 1;
+        else {
+            while (a != 0) {
+                count = count + 1;
+                a = a / 10;
+            }
+        }
+
+        System.out.println("Number of digits: " + count);
+    }
+}
+
+import java.util.Scanner;
+
+public class SwapDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int a = sc.nextInt();
+        int b = a;
+        int last = a % 10;
+        int first = 0;
+        int len = 0;
+
+        while (b > 0) {
+            first = b % 10;
+            b = b / 10;
+            len++;
+        }
+
+        if (len == 1) {
+            System.out.println("Swapped number: " + a);
+            return;
+        }
+
+        int pow = (int)Math.pow(10, len - 1);
+        int mid = (a % pow) / 10;
+
+        int result = last * pow + mid * 10 + first;
+        System.out.println("Number after swapping first and last digit: " + result);
+    }
+}
